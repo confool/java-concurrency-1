@@ -1,0 +1,7 @@
+实例封闭
+例子：Collections.synchronizedList等一系列同步包装器，
+它是用decorater模式实现的，将collection作为参数传入给类中的封闭实例，然后提供一系列用锁同步过的接口用于访问。
+
+监视器模式：
+
+...
