@@ -2,7 +2,8 @@ package utils;
 
 import java.util.concurrent.LinkedBlockingQueue;
 
-//四核cpu，占用25%
+//BlockQueue常用于生产者-消费者模型
+//四核cpu，占用25%, 为main中while循环占用，LinkedBlockingQueue的take是await等待唤醒式的。
 
 public class BlockingQueueDemo {
 	public static class MyThread extends Thread
