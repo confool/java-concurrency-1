@@ -9,48 +9,44 @@ import java.util.concurrent.FutureTask;
 
 public class FutureTaskDemo {
 
-	private final FutureTask<Integer> ft = new FutureTask<Integer>(
-			new Callable<Integer>() {
-				public Integer call()
-				{
-					try {
-						Thread.sleep(5000);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					return 1;
-				}
-			}
-		);
-	
-	private final Thread t = new Thread(ft);
-	
-	public void start()
-	{
-		t.start();
-	}
-	
-	public Integer getResult()
-	{
-		try {
-			return ft.get();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ExecutionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
-	}
-	
-	public static void main(String[] args)
-	{
-		FutureTaskDemo demo = new FutureTaskDemo();
-		
-		System.out.println("ask for result");
-		demo.start();
-		System.out.println(demo.getResult());
-	}
+    private final FutureTask<Integer> ft = new FutureTask<Integer>(
+            new Callable<Integer>() {
+                public Integer call() {
+                    try {
+                        Thread.sleep(5000);
+                    } catch (InterruptedException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                    return 1;
+                }
+            }
+    );
+
+    private final Thread t = new Thread(ft);
+
+    public void start() {
+        t.start();
+    }
+
+    public Integer getResult() {
+        try {
+            return ft.get();
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static void main(String[] args) {
+        FutureTaskDemo demo = new FutureTaskDemo();
+
+        System.out.println("ask for result");
+        demo.start();
+        System.out.println(demo.getResult());
+    }
 }
